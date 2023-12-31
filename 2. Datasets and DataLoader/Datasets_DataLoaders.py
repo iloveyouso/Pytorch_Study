@@ -1,3 +1,5 @@
+## Datasets and DataLoaders.py
+
 import torch
 from torch.utils.data import Dataset
 from torchvision import datasets
@@ -62,5 +64,5 @@ label = train_labels[0]
 plt.figure() # Create a new figure
 plt.imshow(img, cmap="gray")
 plt.axis("off")  # Remove axis
-plt.savefig('image.png', bbox_inches='tight', pad_inches=0)  # Save as PNG
+plt.savefig('randomly_retrieved_from_one_batch.png', bbox_inches='tight', pad_inches=0)  # Save as PNG
 print(f"Label: {label}")

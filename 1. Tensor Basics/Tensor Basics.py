@@ -1,3 +1,5 @@
+# Tensor Basics.py
+
 import numpy as np 
 import torch
 
@@ -22,8 +24,8 @@ print(f"Shape: {tensor.shape}")
 print(f"dtype: {tensor.dtype}")
 print(f"Device: {tensor.device}")
 print(torch.cuda.is_available()) ## ?????????????
-if torch.cuda.is_available():
-    tensor = tensor.to("cuda")
+
+tensor = tensor.to("cuda")
 print(f"Device Again: {tensor.device} \n")
 
 ############################################
