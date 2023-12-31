@@ -4,7 +4,7 @@ from torchvision import datasets
 from torchvision.transforms import ToTensor
 import matplotlib.pyplot as plt
 
-traing_data = datasets.FashionMNIST(
+training_data = datasets.FashionMNIST(
     root="data",
     train=True,
     download=True,
@@ -35,8 +35,8 @@ labels_map = {
 figure = plt.figure(figsize=(8,8))
 cols, rows = 3,3
 for i in range(1,cols*rows+1):
-    sample_idx = torch.randint(len(traing_data),size=(1,)).item()
-    img, label = traing_data[sample_idx]
+    sample_idx = torch.randint(len(training_data),size=(1,)).item()
+    img, label = training_data[sample_idx]
     figure.add_subplot(rows,cols,i)
     plt.title(labels_map[label])
     plt.axis("off")
@@ -44,4 +44,23 @@ for i in range(1,cols*rows+1):
 
 # Save the figure as an image file
 plt.show()
-plt.savefig('plot.png')
+plt.savefig('Samples_from_Training_Sets.png')
+
+#################################################
+
+from torch.utils.data import DataLoader
+
+train_dataloader = DataLoader(training_data, batch_size=64, shuffle=True)
+test_dataloader = DataLoader(test_data, batch_size=64, shuffle=True)
+
+# Display image and label.
+train_features, train_labels = next(iter(train_dataloader))
+print(f"Feature batch shape: {train_features.size()}")
+print(f"Labels batch shape: {train_labels.size()}")
+img = train_features[0].squeeze()
+label = train_labels[0]
+plt.figure() # Create a new figure
+plt.imshow(img, cmap="gray")
+plt.axis("off")  # Remove axis
+plt.savefig('image.png', bbox_inches='tight', pad_inches=0)  # Save as PNG
+print(f"Label: {label}")
