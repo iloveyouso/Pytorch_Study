@@ -7,7 +7,7 @@ from torchvision.transforms import ToTensor
 import matplotlib.pyplot as plt
 
 training_data = datasets.FashionMNIST(
-    root="data",
+    root="2. Datasets and DataLoader/data",
     train=True,
     download=True,
     transform=ToTensor()
@@ -15,7 +15,7 @@ training_data = datasets.FashionMNIST(
 )
 
 test_data = datasets.FashionMNIST(
-    root="data",
+    root="2. Datasets and DataLoader/data",
     train=False,
     download=True,
     transform=ToTensor()
@@ -46,7 +46,7 @@ for i in range(1,cols*rows+1):
 
 # Save the figure as an image file
 plt.show()
-plt.savefig('Samples_from_Training_Sets.png')
+plt.savefig('2. Datasets and DataLoader/Samples_from_Training_Sets.png')
 
 #################################################
 
@@ -64,5 +64,5 @@ label = train_labels[0]
 plt.figure() # Create a new figure
 plt.imshow(img, cmap="gray")
 plt.axis("off")  # Remove axis
-plt.savefig('randomly_retrieved_from_one_batch.png', bbox_inches='tight', pad_inches=0)  # Save as PNG
+plt.savefig('2. Datasets and DataLoader/randomly_retrieved_from_one_batch.png', bbox_inches='tight', pad_inches=0)  # Save as PNG
 print(f"Label: {label}")

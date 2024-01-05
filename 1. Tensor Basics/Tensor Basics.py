@@ -23,7 +23,6 @@ tensor = torch.rand(3,4)
 print(f"Shape: {tensor.shape}")
 print(f"dtype: {tensor.dtype}")
 print(f"Device: {tensor.device}")
-print(torch.cuda.is_available()) ## ?????????????
 
 tensor = tensor.to("cuda")
 print(f"Device Again: {tensor.device} \n")
